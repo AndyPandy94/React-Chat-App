@@ -1,8 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import PubNub from 'pubnub';
 import { PubNubProvider, usePubNub } from 'pubnub-react';
-import { Picker } from "emoji-mart";
-import "emoji-mart/css/emoji-mart.css";
+import { Picker } from 'emoji-mart';
+import 'emoji-mart/css/emoji-mart.css';
 
 const pubnub = new PubNub({
   publishKey: 'pub-c-c71b4127-a915-4da6-b760-beb5e3b3474b',
@@ -15,8 +15,15 @@ function App() {
     <PubNubProvider client={pubnub}>
       <Chat />
     </PubNubProvider>
+    <Chat channel="channel">
+      <MessageList enableReactions reactionsPicker={<Picker />} />
+      <MessageInput typingIndicator emojiPicker={<Picker />} />
+    </Chat
   );
 }
+
+
+
 
     function Chat() {
       const pubnub = usePubNub();
