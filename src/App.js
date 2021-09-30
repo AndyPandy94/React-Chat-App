@@ -15,10 +15,6 @@ function App() {
     <PubNubProvider client={pubnub}>
       <Chat />
     </PubNubProvider>
-    <Chat channel="channel">
-      <MessageList enableReactions reactionsPicker={<Picker />} />
-      <MessageInput typingIndicator emojiPicker={<Picker />} />
-    </Chat
   );
 }
 
